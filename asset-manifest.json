@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/outlast-quest/static/css/main.a5687ac8.css",
+    "main.js": "/outlast-quest/static/js/main.a8e51666.js",
+    "static/js/787.8d775a42.chunk.js": "/outlast-quest/static/js/787.8d775a42.chunk.js",
+    "static/media/prok.JPG": "/outlast-quest/static/media/prok.696ebbf11f5692ec60b2.JPG",
+    "static/media/ai-generated-8661949_1920.jpg": "/outlast-quest/static/media/ai-generated-8661949_1920.0c635a137df175f8f6e1.jpg",
+    "static/media/Circ.JPG": "/outlast-quest/static/media/Circ.730aef4227b1a6cf2be3.JPG",
+    "static/media/circ.jpg": "/outlast-quest/static/media/circ.a89e873fd75d00d9ae4a.jpg",
+    "static/media/IMG_1392.JPG": "/outlast-quest/static/media/IMG_1392.42fbc53846432593112c.JPG",
+    "static/media/povorot.JPG": "/outlast-quest/static/media/povorot.01faacefeb48727e350a.JPG",
+    "static/media/povor.jpg": "/outlast-quest/static/media/povor.e91f49481081619f625f.jpg",
+    "static/media/pik.jpg": "/outlast-quest/static/media/pik.39934e52e8e9724cfdc4.jpg",
+    "static/media/mon.jpg": "/outlast-quest/static/media/mon.af69eef762524f9307f5.jpg",
+    "static/media/creepy.svg": "/outlast-quest/static/media/creepy.fad281b55e4d6733f8d9c76b4b0dafe3.svg",
+    "static/media/actor.svg": "/outlast-quest/static/media/actor.15abd7ea336296a5030f7c34eb14c0db.svg",
+    "static/media/ind.svg": "/outlast-quest/static/media/ind.61ebbeb77ae413018e506c8aded19d39.svg",
+    "static/media/calendar.svg": "/outlast-quest/static/media/calendar.fc4855dec76a9ab09583b3fa4448d526.svg",
+    "static/media/age.svg": "/outlast-quest/static/media/age.c0a43b3a7f09cc30114760f56711e5b5.svg",
+    "static/media/dollar.svg": "/outlast-quest/static/media/dollar.15ca591eaa4853e1b34aa213487ff078.svg",
+    "static/media/logo.svg": "/outlast-quest/static/media/logo.bb057c37839ad86c3dad78ae9b73b9b7.svg",
+    "static/media/team.svg": "/outlast-quest/static/media/team.80908bc28a02c0c8cd0a1526bb326b65.svg",
+    "static/media/phone.svg": "/outlast-quest/static/media/phone.13d45ca22b27f4c2b99a4da6e87c0f34.svg",
+    "static/media/doubble.svg": "/outlast-quest/static/media/doubble.882aa40004b5cf3b249cd98b1f33283c.svg",
+    "index.html": "/outlast-quest/index.html",
+    "static/media/time.svg": "/outlast-quest/static/media/time.7b55fee34dee73430e8714f6ce448b2f.svg",
+    "static/media/safety.svg": "/outlast-quest/static/media/safety.a32a29a13aec4e280c62e6c0c0d27135.svg",
+    "static/media/inst.svg": "/outlast-quest/static/media/inst.916aed140280c62d925dc1ae6923dc40.svg",
+    "static/media/mail.svg": "/outlast-quest/static/media/mail.9641f4978b1b5dc122fff17dd58c8baf.svg",
+    "main.a5687ac8.css.map": "/outlast-quest/static/css/main.a5687ac8.css.map",
+    "main.a8e51666.js.map": "/outlast-quest/static/js/main.a8e51666.js.map",
+    "787.8d775a42.chunk.js.map": "/outlast-quest/static/js/787.8d775a42.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a5687ac8.css",
+    "static/js/main.a8e51666.js"
+  ]
+}
