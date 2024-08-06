@@ -5,7 +5,7 @@ import time from "../../img/advanstage/time.svg";
 import actor from "../../img/advanstage/actor.svg";
 import creepy from "../../img/advanstage/creepy.svg";
 import doubble from "../../img/advanstage/doubble.svg";
-import BookingCalendar from "../../Components/Calendar/Calendar";
+import MonahBookingCalendar from "../../Components/Calendar/MonahCalendar/MonahCalendar";
 import { Link} from "react-scroll"; 
 import { useEffect } from "react";
 
@@ -106,7 +106,7 @@ export default function Proklatie() {
         </ul>
       </div>
       <div id="calendar">
-        <BookingCalendar questName={questName} />
+        <MonahBookingCalendar questName={questName} />
       </div>
       <Footer />
     </div>

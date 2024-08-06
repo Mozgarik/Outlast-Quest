@@ -4,7 +4,7 @@
     justify-content: center;
     width: 100%;
     height: 1000px;
-    background-image: url(../../img/assist/povorot.JPG);
+    background-image: url(../../img/assist/povorot.JPG);;
     background-size: cover;
     background-position: center;
     opacity: 0.9;
@@ -63,6 +63,7 @@
 
 .questAdress {
     border-left: 1px solid rgb(51, 153, 131);
+    width: 650px;
     padding-left: 80px;
 }
 
@@ -229,13 +230,16 @@
 }
 
 @media (max-width: 768px) {
-    form {}
-
     .opas {
         display: flex;
         align-items: flex-end;
         justify-content: center;
         height: 500px;
+    }
+
+
+    .questAdress {
+        max-width: 100%;
     }
 
     .heroButton {

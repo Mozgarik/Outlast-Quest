@@ -1,19 +1,29 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
-import styles from "./Calendar.module.css";
-import time from "../../img/advanstage/time.svg";
-import calendar from "../../img/calendar.svg";
-import dollar from "../../img/dollar.svg";
+import styles from "./MonahCalendar.module.css";
+import time from "../../../img/advanstage/time.svg";
+import calendar from "../../../img/calendar.svg";
+import dollar from "../../../img/dollar.svg";
 import Notiflix from "notiflix";
 
 const timeSlots = [
-  { time: "10:00", price: 1100 },
-  { time: "12:00", price: 1200 },
-  { time: "14:00", price: 1300 },
-  { time: "16:00", price: 1300 },
-  { time: "18:00", price: 1400 },
+  { time: "11:00", price: 1100 },
+  { time: "12:30", price: 1100 },
+  { time: "14:00", price: 1200 },
+  { time: "15:30", price: 1200 },
+  { time: "17:00", price: 1300 },
+  { time: "18:30", price: 1400 },
   { time: "20:00", price: 1500 },
-  { time: "22:00", price: 1600 },
+];
+
+const weekendTimeSlots = [
+  { time: "11:00", price: 1100 },
+  { time: "12:30", price: 1100 },
+  { time: "14:00", price: 1200 },
+  { time: "15:30", price: 1300 },
+  { time: "17:00", price: 1400 },
+  { time: "18:30", price: 1500 },
+  { time: "20:00", price: 1600 },
 ];
 
 const getNextSevenDays = () => {
@@ -27,7 +37,7 @@ const getNextSevenDays = () => {
   return days;
 };
 
-const BookingCalendar = ({ questName }) => {
+const MonahBookingCalendar = ({ questName }) => {
   const [bookings, setBookings] = useState({});
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
@@ -209,6 +219,11 @@ const BookingCalendar = ({ questName }) => {
     return basePrice + (additionalPlayers > 0 ? additionalPlayers * 200 : 0);
   };
 
+  const isWeekend = (day) => {
+    const dayOfWeek = day.getDay();
+    return dayOfWeek === 6 || dayOfWeek === 0; // 6 - суббота, 0 - воскресенье
+  };
+
   return (
     <div className={styles.calendarContainer}>
       <h2 className={styles.calendarTitle}>Обери зручну дату та час</h2>
@@ -223,25 +238,26 @@ const BookingCalendar = ({ questName }) => {
               day.getMonth() + 1
             }`}</h4>
             <div className={styles.timeSlots}>
-              {timeSlots.map((timeSlot, idx) => (
-                <button
-                  key={idx}
-                  className={`${styles.timeSlot} ${
-                    isBooked(day, timeSlot.time) ||
-                    isPastTime(day, timeSlot.time)
-                      ? styles.booked
-                      : ""
-                  }`}
-                  onClick={() => handleBooking(day, timeSlot)}
-                  disabled={
-                    isBooked(day, timeSlot.time) ||
-                    isPastTime(day, timeSlot.time)
-                  }
-                >
-                  {timeSlot.time} <br />
-                  <p className={styles.timePrice}>({timeSlot.price} грн)</p>
-                </button>
-              ))}
+              {(isWeekend(day) ? weekendTimeSlots : timeSlots).map(
+                (timeSlot, idx) => (
+                  <button
+                    key={idx}
+                    className={`${styles.timeSlot} ${
+                      isBooked(day, timeSlot.time) ||
+                      isPastTime(day, timeSlot.time)
+                        ? styles.booked
+                        : ""
+                    } ${isWeekend(day) ? styles.weekendTimeSlot : ""}`}
+                    onClick={() => handleBooking(day, timeSlot)}
+                    disabled={
+                      isBooked(day, timeSlot.time) || isPastTime(day, timeSlot.time)
+                    }
+                  >
+                    {timeSlot.time} <br />
+                    <p className={styles.timePrice}>({timeSlot.price} грн)</p>
+                  </button>
+                )
+              )}
             </div>
           </div>
         ))}
@@ -352,4 +368,4 @@ const BookingCalendar = ({ questName }) => {
   );
 };
 
-export default BookingCalendar;
+export default MonahBookingCalendar;

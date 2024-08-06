@@ -5,8 +5,9 @@ import time from "../../img/advanstage/time.svg";
 import actor from "../../img/advanstage/actor.svg";
 import creepy from "../../img/advanstage/creepy.svg";
 import doubble from "../../img/advanstage/doubble.svg";
-import BookingCalendar from "../../Components/Calendar/Calendar";
+import PovorotBookingCalendar from '../../Components/Calendar/PovorotCalendar/PovorotCalendar'
 import { Link} from "react-scroll"; // Импортируем библиотеку
+import { useEffect } from "react";
 
 
 export default function Povorot() {
@@ -27,6 +28,10 @@ export default function Povorot() {
     currentDate4,
     currentDate5
   );
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>
@@ -101,7 +106,9 @@ export default function Povorot() {
           </li>
         </ul>
       </div>
-      <BookingCalendar questName={questName} />
+      <div id="calendar">
+        <PovorotBookingCalendar questName={questName} />
+      </div>
       <Footer />
     </div>
   );
