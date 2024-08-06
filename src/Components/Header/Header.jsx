@@ -7,7 +7,7 @@ import email from "../../img/mail.svg";
 export default function Header() {
   return (
     <header>
-      <a className={s.hLink} href="/">
+      <a className={s.hLink} href="/outlast-quest/">
         <div className={s.logotype}>
           <Logo className={s.logo} />
           <span className={s.outlast}>Outlast</span>
@@ -17,7 +17,7 @@ export default function Header() {
         <ul className={s.contactsList}>
           <li className={s.contactItem}>
             <a href="https://www.instagram.com/outlast.quest/">
-              <img className={s.instIcon} src={inst} alt="" />
+              <img className={s.instIcon} src={inst} alt="" /> 
             </a>
           </li>
           <li className={s.contactItem}>
