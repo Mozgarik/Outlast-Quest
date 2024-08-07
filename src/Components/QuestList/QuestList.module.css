@@ -12,6 +12,11 @@
         border: 1px solid rgb(0, 0, 0);
         border-radius: 10px;
         background-color: rgb(63, 110, 91);
+        transition: transform 0.3s ease; /* Добавляем плавный переход */
+    }
+
+    .questItem:focus {
+        transform: scale(1.1); /* Увеличиваем размер на 10% при фокусе */
     }
 
     .questList {
@@ -71,6 +76,11 @@
         border: 1px solid rgb(0, 0, 0);
         border-radius: 10px;
         background-color: rgb(63, 110, 91);
+        transition: transform 0.3s ease; /* Добавляем плавный переход */
+    }
+
+    .questItem:focus {
+        transform: scale(1.1); /* Увеличиваем размер на 10% при наведении */
     }
 
     .questList {
@@ -130,6 +140,11 @@
         border: 1px solid rgb(0, 0, 0);
         border-radius: 10px;
         background-color: rgb(63, 110, 91);
+        transition: transform 0.3s ease; /* Добавляем плавный переход */
+    }
+
+    .questItem:hover {
+        transform: scale(1.1); /* Увеличиваем размер на 10% при наведении */
     }
 
     .questList {
@@ -192,7 +207,13 @@
         border: 1px solid rgb(0, 0, 0);
         border-radius: 10px;
         background-color: rgb(63, 110, 91);
+        transition: transform 0.3s ease; /* Добавляем плавный переход */
     }
+
+    .questItem:hover {
+        transform: scale(1.1); /* Увеличиваем размер на 10% при наведении */
+    }
+
     .questList {
         width: 1400px;
         margin: 100px auto;
@@ -234,4 +255,5 @@
         border: 0;
         border: 1px solid rgb(255, 255, 255);
         color: white;
-    }}
+    }
+}
