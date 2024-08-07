@@ -68,7 +68,7 @@ export default function Proklatie() {
             <li className={s.questContactItem}>
               Адреса:{" "}
               <span className={s.contactDesc}>
-                вул. Гоголя 1/3, перший під’їзд, код 2к , район Приморський
+              Провулок Нахімова 6 , район Приморський
               </span>{" "}
             </li>
             <li className={s.questContactItem}>
@@ -84,23 +84,23 @@ export default function Proklatie() {
           <li className={s.advantagesItem}>
             <img src={time} alt="" className={s.advantagesImg} /> <br />
             <span className={s.advantagesDesc}>
-              Проходження цього квесту займае приблизно 60 хвилин
+              Проходження цього квесту займає приблизно 60 хвилин
             </span>
           </li>
           <li className={s.advantagesItem}>
             <img src={actor} alt="" className={s.advantagesImg} /> <br />
             <span className={s.advantagesDesc}>
-              Проходження цього квесту мiстить гру актора
+              Проходження цього квесту містить гру актора
             </span>
           </li>
           <li className={s.advantagesItem}>
             <img src={creepy} alt="" className={s.advantagesImg} /> <br />
-            <span className={s.advantagesDesc}>Цей квест э квестом жахiв</span>
+            <span className={s.advantagesDesc}>Цей квест є квестом жахів</span>
           </li>
           <li className={s.advantagesItem}>
             <img src={doubble} alt="" className={s.advantagesImg} /> <br />
             <span className={s.advantagesDesc}>
-              Додатково ви можете придбати другий рiвень страху (+200грн)
+              Додатково ви можете придбати другий рівень страху (+200 грн)
             </span>
           </li>
         </ul>

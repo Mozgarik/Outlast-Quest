@@ -27,9 +27,8 @@
         padding: 10px 20px;
         margin: 80px auto;
         border-radius: 20px;
-        font-family: 'Anton', cursive, sans-serif;
         font-size: 15px;
-        font-weight: 800;
+        font-weight: 600;
         background-color: rgb(213, 255, 232);
         color: rgb(52, 80, 69);
     }
@@ -64,9 +63,8 @@
         padding: 10px 20px;
         margin: 90px auto;
         border-radius: 20px;
-        font-family: 'Anton';
         font-size: 15px;
-        font-weight: 800;
+        font-weight: 700;
         background-color: rgb(213, 255, 232);
         color: rgb(52, 80, 69);
     }
@@ -103,9 +101,8 @@
         margin: 200px auto;
         padding: 20px 40px;
         border-radius: 20px;
-        font-family: 'Anton';
         font-size: 25px;
-        font-weight: 800;
+        font-weight: 700;
         background-color: rgb(213, 255, 232);
         color: rgb(52, 80, 69);
     }
@@ -143,9 +140,8 @@
         margin: 200px auto;
         padding: 20px 40px;
         border-radius: 20px;
-        font-family: 'Anton';
         font-size: 25px;
-        font-weight: 800;
+        font-weight: 700;
         background-color: rgb(213, 255, 232);
         color: rgb(52, 80, 69);
     }

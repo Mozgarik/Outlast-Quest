@@ -73,9 +73,9 @@ const PovorotBookingCalendar = ({ questName }) => {
         setBookings(parsedBookings);
         deleteExpiredBookings(data);
       } catch (error) {
-        console.error("Ошибка при получении данных о бронированиях:", error);
-        Notiflix.Notify.failure("Ошибка при получении данных о бронированиях.");
-      }
+        console.error("Помилка при отриманні даних про бронювання:", error);
+        Notiflix.Notify.failure("Помилка при отриманні даних про бронювання.");
+    }
     };
 
     const deleteExpiredBookings = async (bookings) => {
@@ -92,7 +92,6 @@ const PovorotBookingCalendar = ({ questName }) => {
                 method: "DELETE",
               }
             );
-            console.log(`Удалено устаревшее бронирование с ID: ${booking._id}`);
           } catch (error) {
             console.error(
               `Ошибка при удалении бронирования с ID: ${booking._id}`,
@@ -149,11 +148,8 @@ const PovorotBookingCalendar = ({ questName }) => {
       });
 
       if (!response.ok) {
-        throw new Error("Ошибка сети: " + response.statusText);
+        throw new Error("Помилка мережi: " + response.statusText);
       }
-
-      const responseData = await response.json();
-      console.log("Бронирование подтверждено с данными:", responseData);
 
       const dateString = selectedDate.toDateString();
       const updatedBookings = {
@@ -171,11 +167,11 @@ const PovorotBookingCalendar = ({ questName }) => {
 
       closeModal();
 
-      Notiflix.Notify.success("Бронирование успешно подтверждено.");
-    } catch (error) {
-      console.error("Ошибка подтверждения бронирования:", error);
-      Notiflix.Notify.failure("Ошибка подтверждения бронирования.");
-    }
+      Notiflix.Notify.success("Бронювання успішно підтверджено.");
+} catch (error) {
+  console.error("Помилка підтвердження бронювання:", error);
+  Notiflix.Notify.failure("Помилка підтвердження бронювання.");
+}
   };
 
   const validatePhoneNumber = (phone) => {

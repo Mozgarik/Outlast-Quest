@@ -58,7 +58,6 @@ const CircBookingCalendar = ({ questName }) => {
       try {
         const response = await fetch(`https://outlast-quest-7615628a59ff.herokuapp.com/api/${questName}`);
         const data = await response.json();
-        console.log("Полученные данные о бронированиях:", data);
         const parsedBookings = data.reduce((acc, booking) => {
           const date = new Date(booking.reserved.split(" ")[0]).toDateString();
           const time = booking.reserved.split(" ")[1];
@@ -69,9 +68,9 @@ const CircBookingCalendar = ({ questName }) => {
         setBookings(parsedBookings);
         deleteExpiredBookings(data);
       } catch (error) {
-        console.error("Ошибка при получении данных о бронированиях:", error);
-        Notiflix.Notify.failure("Ошибка при получении данных о бронированиях.");
-      }
+        console.error("Помилка при отриманні даних про бронювання:", error);
+        Notiflix.Notify.failure("Помилка при отриманні даних про бронювання.");
+    }
     };
 
     const deleteExpiredBookings = async (bookings) => {
@@ -90,7 +89,7 @@ const CircBookingCalendar = ({ questName }) => {
                 method: "DELETE",
               }
             );
-            console.log(`Удалено устаревшее бронирование с ID: ${booking._id}`);
+            console.log(`Видалено застаріле бронювання з ID: ${booking._id}`);
           } catch (error) {
             console.error(
               `Ошибка при удалении бронирования с ID: ${booking._id}`,
@@ -148,11 +147,11 @@ const CircBookingCalendar = ({ questName }) => {
       });
 
       if (!response.ok) {
-        throw new Error("Ошибка сети: " + response.statusText);
+        throw new Error("Помилка мережі:" + response.statusText);
       }
 
       const responseData = await response.json();
-      console.log("Бронирование подтверждено с данными:", responseData);
+      console.log("Бронювання підтверджено з даними:", responseData);
 
       // Обновление состояния бронирований
       const dateString = selectedDate.toDateString();
@@ -173,10 +172,10 @@ const CircBookingCalendar = ({ questName }) => {
       // Закрытие модального окна
       closeModal();
 
-      Notiflix.Notify.success("Бронирование успешно подтверждено.");
+      Notiflix.Notify.success("Бронювання успішно підтверджено.");
     } catch (error) {
-      console.error("Ошибка подтверждения бронирования:", error);
-      Notiflix.Notify.failure("Ошибка подтверждения бронирования.");
+      console.error("Помилка підтвердження бронювання:", error);
+      Notiflix.Notify.failure("Помилка підтвердження бронювання.");
     }
   };
 
@@ -275,7 +274,7 @@ const CircBookingCalendar = ({ questName }) => {
         onRequestClose={closeModal}
         className={styles.modal}
         overlayClassName={styles.overlay}
-        contentLabel="Бронирование времени"
+        contentLabel="Бронювання часу"
       >
         <form onSubmit={handleConfirmBooking}>
           <div className={styles.reservInfo}>

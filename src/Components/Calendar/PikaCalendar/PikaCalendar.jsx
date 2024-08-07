@@ -66,9 +66,9 @@ const PikaBookingCalendar = ({ questName }) => {
         setBookings(parsedBookings);
         deleteExpiredBookings(data);
       } catch (error) {
-        console.error("Ошибка при получении данных о бронированиях:", error);
-        Notiflix.Notify.failure("Ошибка при получении данных о бронированиях.");
-      }
+        console.error("Помилка при отриманні даних про бронювання:", error);
+        Notiflix.Notify.failure("Помилка при отриманні даних про бронювання.");
+    }
     };
 
     const deleteExpiredBookings = async (bookings) => {
@@ -87,7 +87,7 @@ const PikaBookingCalendar = ({ questName }) => {
                 method: "DELETE",
               }
             );
-            console.log(`Удалено устаревшее бронирование с ID: ${booking._id}`);
+            console.log(`Видалено застаріле бронювання з ID: ${booking._id}`);
           } catch (error) {
             console.error(
               `Ошибка при удалении бронирования с ID: ${booking._id}`,
@@ -145,11 +145,11 @@ const PikaBookingCalendar = ({ questName }) => {
       });
 
       if (!response.ok) {
-        throw new Error("Ошибка сети: " + response.statusText);
+        throw new Error("Помилка мережi " + response.statusText);
       }
 
       const responseData = await response.json();
-      console.log("Бронирование подтверждено с данными:", responseData);
+      console.log("Бронювання підтверджено з даними:", responseData);
 
       // Обновление состояния бронирований
       const dateString = selectedDate.toDateString();
@@ -170,11 +170,11 @@ const PikaBookingCalendar = ({ questName }) => {
       // Закрытие модального окна
       closeModal();
 
-      Notiflix.Notify.success("Бронирование успешно подтверждено.");
-    } catch (error) {
-      console.error("Ошибка подтверждения бронирования:", error);
-      Notiflix.Notify.failure("Ошибка подтверждения бронирования.");
-    }
+      Notiflix.Notify.success("Бронювання успішно підтверджено.");
+} catch (error) {
+  console.error("Помилка підтвердження бронювання:", error);
+  Notiflix.Notify.failure("Помилка підтвердження бронювання.");
+}
   };
 
   const validatePhoneNumber = (phone) => {

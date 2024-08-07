@@ -6,20 +6,15 @@ import actor from "../../img/advanstage/actor.svg";
 import creepy from "../../img/advanstage/creepy.svg";
 import doubble from "../../img/advanstage/doubble.svg";
 import MonahBookingCalendar from "../../Components/Calendar/MonahCalendar/MonahCalendar";
-import { Link} from "react-scroll"; 
+import { Link } from "react-scroll"; 
 import { useEffect } from "react";
 
 export default function Proklatie() {
   const currentDate1 = new Date().getDate();
-
   const currentDate2 = new Date().getDate() + 1;
-
   const currentDate3 = new Date().getDate() + 2;
-
   const currentDate4 = new Date().getDate() + 3;
-
   const currentDate5 = new Date().getDate() + 4;
-
 
   const questName = "monah";
 
@@ -48,7 +43,7 @@ export default function Proklatie() {
 
       <div className={s.opys}>
         <div className={s.hist}>
-          <h2 className={s.questTittle}>Iсторiя</h2>
+          <h2 className={s.questTittle}>Історія</h2>
           <span className={s.questHist}>
             Ви вирушаєте в абатство Сент-Карта разом зі священиком Бруком і
             молодою послушницею Айрін, щоб розслідувати загадковий інцидент із
@@ -63,12 +58,12 @@ export default function Proklatie() {
           <h3 className={s.contactTittle}>Контакти</h3>
           <ul className={s.questContactList}>
             <li className={s.questContactItem}>
-              Мiсто: <span className={s.contactDesc}>Одеса</span>
+              Місто: <span className={s.contactDesc}>Одеса</span>
             </li>
             <li className={s.questContactItem}>
               Адреса:{" "}
               <span className={s.contactDesc}>
-                вул. Гоголя 1/3, перший під’їзд, код 2к , район Приморський
+                вул. Гоголя 1/3, перший під’їзд, код 2к, район Приморський
               </span>{" "}
             </li>
             <li className={s.questContactItem}>
@@ -84,23 +79,23 @@ export default function Proklatie() {
           <li className={s.advantagesItem}>
             <img src={time} alt="" className={s.advantagesImg} /> <br />
             <span className={s.advantagesDesc}>
-              Проходження цього квесту займае приблизно 60 хвилин
+              Проходження цього квесту займає приблизно 60 хвилин
             </span>
           </li>
           <li className={s.advantagesItem}>
             <img src={actor} alt="" className={s.advantagesImg} /> <br />
             <span className={s.advantagesDesc}>
-              Проходження цього квесту мiстить гру актора
+              Проходження цього квесту містить гру актора
             </span>
           </li>
           <li className={s.advantagesItem}>
             <img src={creepy} alt="" className={s.advantagesImg} /> <br />
-            <span className={s.advantagesDesc}>Цей квест э квестом жахiв</span>
+            <span className={s.advantagesDesc}>Цей квест є квестом жахів</span>
           </li>
           <li className={s.advantagesItem}>
             <img src={doubble} alt="" className={s.advantagesImg} /> <br />
             <span className={s.advantagesDesc}>
-              Додатково ви можете придбати другий рiвень страху (+200грн)
+              Додатково ви можете придбати другий рівень страху (+200 грн)
             </span>
           </li>
         </ul>
