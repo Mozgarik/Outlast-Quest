@@ -35,6 +35,13 @@
   text-align: center;
 }
 
+.day {
+  background-color: #242424;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 /* Контейнер слотов времени */
 .timeSlots {
   display: flex;
@@ -383,6 +390,8 @@ form {
 
   .timeSlot {
     margin: 10px;
+    width: auto;
+    max-width: 120px;
   }
 
   form {
@@ -423,7 +432,6 @@ form {
 
   .daysContainer {
     flex-direction: column; /* Дни отображаются в столбик */
-    width: 100%;
   }
 
   .timeSlots {
@@ -434,7 +442,7 @@ form {
 
   .timeSlot {
     margin: 10px;
-    width: 65%; /* Время занимает всю ширину контейнера */
+    width: 100%; /* Время занимает всю ширину контейнера */
     max-width: 100%; /* Убираем максимальную ширину */
   }
 

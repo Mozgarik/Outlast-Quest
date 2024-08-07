@@ -37,6 +37,15 @@ const getNextSevenDays = () => {
   return days;
 };
 
+// Функция для форматирования даты
+const formatDate = (date) => {
+  const weekdays = ["нд", "пн", "вт", "ср", "чт", "пт", "сб"];
+  const day = date.getDate().toString().padStart(2, "0");
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const weekday = weekdays[date.getDay()];
+  return `${day}.${month}, ${weekday}`;
+};
+
 const MonahBookingCalendar = ({ questName }) => {
   const [bookings, setBookings] = useState({});
   const [selectedDate, setSelectedDate] = useState(null);
@@ -54,7 +63,7 @@ const MonahBookingCalendar = ({ questName }) => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/api/${questName}`);
+        const response = await fetch(`https://outlast-quest-7615628a59ff.herokuapp.com/api/${questName}`);
         const data = await response.json();
         const parsedBookings = data.reduce((acc, booking) => {
           const date = new Date(booking.reserved.split(" ")[0]).toDateString();
@@ -82,7 +91,7 @@ const MonahBookingCalendar = ({ questName }) => {
         if (bookingDate < now) {
           try {
             await fetch(
-              `http://localhost:3001/api/${questName}/${booking._id}`,
+              `https://outlast-quest-7615628a59ff.herokuapp.com/api/${questName}/${booking._id}`,
               {
                 method: "DELETE",
               }
@@ -118,7 +127,7 @@ const MonahBookingCalendar = ({ questName }) => {
     // Проверка номера телефона
     if (!validatePhoneNumber(formData.phone)) {
       Notiflix.Notify.failure(
-        "Пожалуйста, введите номер телефона в формате: +1234567890 или 123-456-7890"
+        "Будь ласка, введіть номер телефону у форматі: +1234567890 або 123-456-7890"
       );
       return;
     }
@@ -136,7 +145,7 @@ const MonahBookingCalendar = ({ questName }) => {
 
     console.log(newBooking);
     try {
-      const response = await fetch(`http://localhost:3001/api/${questName}/`, {
+      const response = await fetch(`https://outlast-quest-7615628a59ff.herokuapp.com/api/${questName}/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -234,9 +243,7 @@ const MonahBookingCalendar = ({ questName }) => {
       <div className={styles.daysContainer}>
         {nextSevenDays.map((day, index) => (
           <div key={index} className={styles.daySlot}>
-            <h4 className={styles.day}>{`${day.getDate()}.0${
-              day.getMonth() + 1
-            }`}</h4>
+            <h4 className={styles.day}>{formatDate(day)}</h4>
             <div className={styles.timeSlots}>
               {(isWeekend(day) ? weekendTimeSlots : timeSlots).map(
                 (timeSlot, idx) => (
@@ -283,10 +290,7 @@ const MonahBookingCalendar = ({ questName }) => {
               <span className={styles.dateInformTittle}>Дата:</span>
               <span className={styles.reservDateInfo}>
                 {selectedDate
-                  ? selectedDate.toLocaleDateString("ru-RU", {
-                      day: "2-digit",
-                      month: "2-digit",
-                    })
+                  ? formatDate(selectedDate)
                   : ""}
               </span>
             </p>

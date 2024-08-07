@@ -6,6 +6,7 @@ import calendar from "../../../img/calendar.svg";
 import dollar from "../../../img/dollar.svg";
 import Notiflix from "notiflix";
 
+// Время и цены для обычных дней
 const timeSlots = [
   { time: "11:00", price: 1000 },
   { time: "12:10", price: 1000 },
@@ -18,8 +19,9 @@ const timeSlots = [
   { time: "21:20", price: 1500 },
 ];
 
+// Время и цены для выходных
 const weekendTimeSlots = [
-  { time: "11:00", price: 1100 },
+  { time: "11:00", price: 1000 },
   { time: "12:10", price: 1100 },
   { time: "13:30", price: 1200 },
   { time: "14:50", price: 1200 },
@@ -30,6 +32,7 @@ const weekendTimeSlots = [
   { time: "21:20", price: 1600 },
 ];
 
+// Функция для получения следующих семи дней
 const getNextSevenDays = () => {
   const days = [];
   const today = new Date();
@@ -52,13 +55,13 @@ const PovorotBookingCalendar = ({ questName }) => {
     name: "",
     phone: "",
     email: "",
-    players: "2", // Дефолтное количество игроков
+    players: "2",
   });
 
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/api/${questName}`);
+        const response = await fetch(`https://outlast-quest-7615628a59ff.herokuapp.com/api/${questName}`);
         const data = await response.json();
         const parsedBookings = data.reduce((acc, booking) => {
           const date = new Date(booking.reserved.split(" ")[0]).toDateString();
@@ -79,14 +82,12 @@ const PovorotBookingCalendar = ({ questName }) => {
       const now = new Date();
       for (const booking of bookings) {
         const bookingDate = new Date(
-          `${booking.reserved.split(" ")[0]}T${
-            booking.reserved.split(" ")[1]
-          }:00`
+          `${booking.reserved.split(" ")[0]}T${booking.reserved.split(" ")[1]}:00`
         );
         if (bookingDate < now) {
           try {
             await fetch(
-              `http://localhost:3001/api/${questName}/${booking._id}`,
+              `https://outlast-quest-7615628a59ff.herokuapp.com/api/${questName}/${booking._id}`,
               {
                 method: "DELETE",
               }
@@ -119,10 +120,9 @@ const PovorotBookingCalendar = ({ questName }) => {
   const handleConfirmBooking = async (e) => {
     e.preventDefault();
 
-    // Проверка номера телефона
     if (!validatePhoneNumber(formData.phone)) {
       Notiflix.Notify.failure(
-        "Пожалуйста, введите номер телефона в формате: +1234567890 или 123-456-7890"
+        "Будь ласка, введіть номер телефону у форматі: +1234567890 або 123-456-7890"
       );
       return;
     }
@@ -134,13 +134,13 @@ const PovorotBookingCalendar = ({ questName }) => {
         selectedDate.toISOString().split("T")[0]
       } ${selectedTimeSlot}`,
       mail: formData.email,
-      players: formData.players, // Добавление количества игроков
-      price: getTotalPrice(), // Добавление стоимости
+      players: formData.players,
+      price: getTotalPrice(),
     };
 
     console.log(newBooking);
     try {
-      const response = await fetch(`http://localhost:3001/api/${questName}/`, {
+      const response = await fetch(`https://outlast-quest-7615628a59ff.herokuapp.com/api/${questName}/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -155,7 +155,6 @@ const PovorotBookingCalendar = ({ questName }) => {
       const responseData = await response.json();
       console.log("Бронирование подтверждено с данными:", responseData);
 
-      // Обновление состояния бронирований
       const dateString = selectedDate.toDateString();
       const updatedBookings = {
         ...bookings,
@@ -163,15 +162,13 @@ const PovorotBookingCalendar = ({ questName }) => {
       };
       setBookings(updatedBookings);
 
-      // Сброс данных формы
       setFormData({
         name: "",
         phone: "",
         email: "",
-        players: "2", // Сброс количества игроков к дефолтному значению
+        players: "2",
       });
 
-      // Закрытие модального окна
       closeModal();
 
       Notiflix.Notify.success("Бронирование успешно подтверждено.");
@@ -201,31 +198,38 @@ const PovorotBookingCalendar = ({ questName }) => {
     setSelectedDate(null);
     setSelectedTimeSlot(null);
     setSelectedPrice(null);
-    document.body.style.overflow = ""; // Удаление блокировки прокрутки
+    document.body.style.overflow = ""; 
   };
 
   useEffect(() => {
     if (modalIsOpen) {
-      document.body.style.overflow = "hidden"; // Блокировка прокрутки
+      document.body.style.overflow = "hidden"; 
     } else {
-      document.body.style.overflow = ""; // Удаление блокировки прокрутки
+      document.body.style.overflow = ""; 
     }
 
     return () => {
-      document.body.style.overflow = ""; // Очистка блокировки при размонтировании компонента
+      document.body.style.overflow = ""; 
     };
   }, [modalIsOpen]);
 
-  // Определение стоимости в зависимости от количества игроков
   const getTotalPrice = () => {
     const basePrice = selectedPrice || 0;
-    const additionalPlayers = parseInt(formData.players, 10) - 4;
+    const additionalPlayers = parseInt(formData.players, 10) - 4; // Обновлено: базовое количество игроков - 4
     return basePrice + (additionalPlayers > 0 ? additionalPlayers * 200 : 0);
   };
 
   const isWeekend = (day) => {
     const dayOfWeek = day.getDay();
-    return dayOfWeek === 6 || dayOfWeek === 0; // 6 - суббота, 0 - воскресенье
+    return dayOfWeek === 6 || dayOfWeek === 0;
+  };
+
+  // Форматирование даты: день.месяц, день недели
+  const formatDate = (date) => {
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const weekday = ['нд', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'][date.getDay()];
+    return `${day}.${month}, ${weekday}`;
   };
 
   return (
@@ -233,35 +237,30 @@ const PovorotBookingCalendar = ({ questName }) => {
       <h2 className={styles.calendarTitle}>Обери зручну дату та час</h2>
       <p className={styles.cost}>
         *Базова вартість за гру вказана за 4 гравцiв, доплата за кожного
-        наступного гравця 200 грн, максимальна кількість гравців - 6.
+        наступного гравця 200 грн, максимальна кількість гравців - 10.
       </p>
       <div className={styles.daysContainer}>
         {nextSevenDays.map((day, index) => (
           <div key={index} className={styles.daySlot}>
-            <h4 className={styles.day}>{`${day.getDate()}.0${
-              day.getMonth() + 1
-            }`}</h4>
+            <h4 className={styles.day}>{formatDate(day)}</h4>
             <div className={styles.timeSlots}>
-              {(isWeekend(day) ? weekendTimeSlots : timeSlots).map(
-                (timeSlot, idx) => (
-                  <button
-                    key={idx}
-                    className={`${styles.timeSlot} ${
-                      isBooked(day, timeSlot.time) ||
-                      isPastTime(day, timeSlot.time)
-                        ? styles.booked
-                        : ""
-                    } ${isWeekend(day) ? styles.weekendTimeSlot : ""}`}
-                    onClick={() => handleBooking(day, timeSlot)}
-                    disabled={
-                      isBooked(day, timeSlot.time) || isPastTime(day, timeSlot.time)
-                    }
-                  >
-                    {timeSlot.time} <br />
-                    <p className={styles.timePrice}>({timeSlot.price} грн)</p>
-                  </button>
-                )
-              )}
+              {(isWeekend(day) ? weekendTimeSlots : timeSlots).map((timeSlot, idx) => (
+                <button
+                  key={idx}
+                  className={`${styles.timeSlot} ${
+                    isBooked(day, timeSlot.time) || isPastTime(day, timeSlot.time)
+                      ? styles.booked
+                      : ""
+                  } ${isWeekend(day) ? styles.weekendTimeSlot : ""}`}
+                  onClick={() => handleBooking(day, timeSlot)}
+                  disabled={
+                    isBooked(day, timeSlot.time) || isPastTime(day, timeSlot.time)
+                  }
+                >
+                  {timeSlot.time} <br />
+                  <p className={styles.timePrice}>({timeSlot.price} грн)</p>
+                </button>
+              ))}
             </div>
           </div>
         ))}
@@ -286,12 +285,7 @@ const PovorotBookingCalendar = ({ questName }) => {
               <img src={calendar} alt="" className={styles.timeSvg} />
               <span className={styles.dateInformTittle}>Дата:</span>
               <span className={styles.reservDateInfo}>
-                {selectedDate
-                  ? selectedDate.toLocaleDateString("ru-RU", {
-                      day: "2-digit",
-                      month: "2-digit",
-                    })
-                  : ""}
+                {selectedDate ? formatDate(selectedDate) : ""}
               </span>
             </p>
             <p className={styles.reservDate}>
@@ -355,14 +349,17 @@ const PovorotBookingCalendar = ({ questName }) => {
                 <option value="4">4</option>
                 <option value="5">5</option>
                 <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
               </select>
             </label>
             <input type="submit" value="Забронювати гру" />
             <button
               className={styles.modalClose}
               type="button"
-              onClick={closeModal}
-            >
+              onClick={() => closeModal()}>
               Відміна
             </button>
           </div>

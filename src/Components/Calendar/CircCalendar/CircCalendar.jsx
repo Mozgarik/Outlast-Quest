@@ -56,8 +56,9 @@ const CircBookingCalendar = ({ questName }) => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/api/${questName}`);
+        const response = await fetch(`https://outlast-quest-7615628a59ff.herokuapp.com/api/${questName}`);
         const data = await response.json();
+        console.log("Полученные данные о бронированиях:", data);
         const parsedBookings = data.reduce((acc, booking) => {
           const date = new Date(booking.reserved.split(" ")[0]).toDateString();
           const time = booking.reserved.split(" ")[1];
@@ -84,7 +85,7 @@ const CircBookingCalendar = ({ questName }) => {
         if (bookingDate < now) {
           try {
             await fetch(
-              `http://localhost:3001/api/${questName}/${booking._id}`,
+              `https://outlast-quest-7615628a59ff.herokuapp.com/api/${questName}/${booking._id}`,
               {
                 method: "DELETE",
               }
@@ -120,7 +121,7 @@ const CircBookingCalendar = ({ questName }) => {
     // Проверка номера телефона
     if (!validatePhoneNumber(formData.phone)) {
       Notiflix.Notify.failure(
-        "Пожалуйста, введите номер телефона в формате: +1234567890 или 123-456-7890"
+        "Будь ласка, введіть номер телефону у форматі: +1234567890 або 123-456-7890"
       );
       return;
     }
@@ -138,7 +139,7 @@ const CircBookingCalendar = ({ questName }) => {
 
     console.log(newBooking);
     try {
-      const response = await fetch(`http://localhost:3001/api/${questName}/`, {
+      const response = await fetch(`https://outlast-quest-7615628a59ff.herokuapp.com/api/${questName}/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -226,19 +227,23 @@ const CircBookingCalendar = ({ questName }) => {
     return dayOfWeek === 6 || dayOfWeek === 0; // 6 - суббота, 0 - воскресенье
   };
 
+  const formatDate = (date) => {
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const weekday = ['нд', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'][date.getDay()];
+    return `${day}.${month}, ${weekday}`;
+  };
+
   return (
     <div className={styles.calendarContainer}>
       <h2 className={styles.calendarTitle}>Обери зручну дату та час</h2>
       <p className={styles.cost}>
-        *Базова вартість за гру вказана за 4 гравцiв, доплата за кожного
-        наступного гравця 200 грн, максимальна кількість гравців - 6.
+        *Базова вартість за гру вказана за 4 гравців, доплата за кожного наступного гравця 200 грн, максимальна кількість гравців - 8.
       </p>
       <div className={styles.daysContainer}>
         {nextSevenDays.map((day, index) => (
           <div key={index} className={styles.daySlot}>
-            <h4 className={styles.day}>{`${day.getDate()}.0${
-              day.getMonth() + 1
-            }`}</h4>
+            <h4 className={styles.day}>{formatDate(day)}</h4>
             <div className={styles.timeSlots}>
               {(isWeekend(day) ? weekendTimeSlots : timeSlots).map(
                 (timeSlot, idx) => (
@@ -285,10 +290,7 @@ const CircBookingCalendar = ({ questName }) => {
               <span className={styles.dateInformTittle}>Дата:</span>
               <span className={styles.reservDateInfo}>
                 {selectedDate
-                  ? selectedDate.toLocaleDateString("ru-RU", {
-                      day: "2-digit",
-                      month: "2-digit",
-                    })
+                  ? formatDate(selectedDate)
                   : ""}
               </span>
             </p>
@@ -353,6 +355,8 @@ const CircBookingCalendar = ({ questName }) => {
                 <option value="4">4</option>
                 <option value="5">5</option>
                 <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
               </select>
             </label>
             <input type="submit" value="Забронювати гру" />

@@ -35,6 +35,13 @@
   text-align: center;
 }
 
+.day {
+  background-color: #242424;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 /* Контейнер слотов времени */
 .timeSlots {
   display: flex;
