@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/outlast-quest/static/css/main.f5bd4631.css",
+    "main.css": "/outlast-quest/static/css/main.4415cd81.css",
     "main.js": "/outlast-quest/static/js/main.19e3e686.js",
     "static/js/787.8d775a42.chunk.js": "/outlast-quest/static/js/787.8d775a42.chunk.js",
     "static/media/monah1.png": "/outlast-quest/static/media/monah1.40ab10da057de8e4b32d.png",
@@ -55,12 +55,12 @@
     "static/media/safety.svg": "/outlast-quest/static/media/safety.a32a29a13aec4e280c62e6c0c0d27135.svg",
     "static/media/inst.svg": "/outlast-quest/static/media/inst.916aed140280c62d925dc1ae6923dc40.svg",
     "static/media/mail.svg": "/outlast-quest/static/media/mail.9641f4978b1b5dc122fff17dd58c8baf.svg",
-    "main.f5bd4631.css.map": "/outlast-quest/static/css/main.f5bd4631.css.map",
+    "main.4415cd81.css.map": "/outlast-quest/static/css/main.4415cd81.css.map",
     "main.19e3e686.js.map": "/outlast-quest/static/js/main.19e3e686.js.map",
     "787.8d775a42.chunk.js.map": "/outlast-quest/static/js/787.8d775a42.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f5bd4631.css",
+    "static/css/main.4415cd81.css",
     "static/js/main.19e3e686.js"
   ]
 }
