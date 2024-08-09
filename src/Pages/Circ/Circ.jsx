@@ -1,13 +1,14 @@
-import Footer from "../../Components/Footer/Footer";
-import Header from "../../Components/Header/Header";
-import s from "./Cirk.module.css";
-import time from "../../img/advanstage/time.svg";
-import actor from "../../img/advanstage/actor.svg";
-import creepy from "../../img/advanstage/creepy.svg";
-import doubble from "../../img/advanstage/doubble.svg";
-import CircBookingCalendar from '../../Components/Calendar/CircCalendar/CircCalendar'
-import { Link } from "react-scroll"; // Импортируем библиотеку
-import { useEffect } from "react";
+import Footer from '../../Components/Footer/Footer';
+import Header from '../../Components/Header/Header';
+import s from './Cirk.module.css';
+import time from '../../img/advanstage/time.svg';
+import actor from '../../img/advanstage/actor.svg';
+import creepy from '../../img/advanstage/creepy.svg';
+import doubble from '../../img/advanstage/doubble.svg';
+import CircBookingCalendar from '../../Components/Calendar/CircCalendar/CircCalendar';
+import { Link } from 'react-scroll'; // Импортируем библиотеку
+import { useEffect } from 'react';
+import CircSimpleSlider from 'Components/Slider/CircSlider/CircSlider';
 
 export default function Proklatie() {
   const currentDate1 = new Date().getDate();
@@ -16,7 +17,7 @@ export default function Proklatie() {
   const currentDate4 = new Date().getDate() + 3;
   const currentDate5 = new Date().getDate() + 4;
 
-  const questName = "circus";
+  const questName = 'circus';
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -66,18 +67,20 @@ export default function Proklatie() {
               Мiсто: <span className={s.contactDesc}>Одеса</span>
             </li>
             <li className={s.questContactItem}>
-              Адреса:{" "}
+              Адреса:{' '}
               <span className={s.contactDesc}>
-              Провулок Нахімова 6 , район Приморський
-              </span>{" "}
+                Провулок Нахімова 6 , район Приморський
+              </span>{' '}
             </li>
             <li className={s.questContactItem}>
-              Номер телефону:{" "}
+              Номер телефону:{' '}
               <span className={s.contactDesc}>+380 99 516 91 66</span>
             </li>
           </ul>
         </div>
       </div>
+
+      <CircSimpleSlider/>
 
       <div className={s.advantages}>
         <ul className={s.advantagesList}>
@@ -108,6 +111,7 @@ export default function Proklatie() {
       <div id="calendar">
         <CircBookingCalendar questName={questName} />
       </div>
+
       <Footer />
     </div>
   );

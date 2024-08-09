@@ -432,6 +432,7 @@ form {
 
   .daysContainer {
     flex-direction: column; /* Дни отображаются в столбик */
+    width: 70%;
   }
 
   .timeSlots {

@@ -75,7 +75,7 @@ const PovorotBookingCalendar = ({ questName }) => {
       } catch (error) {
         console.error("Помилка при отриманні даних про бронювання:", error);
         Notiflix.Notify.failure("Помилка при отриманні даних про бронювання.");
-    }
+    } 
     };
 
     const deleteExpiredBookings = async (bookings) => {

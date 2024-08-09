@@ -8,6 +8,7 @@ import doubble from "../../img/advanstage/doubble.svg";
 import PovorotBookingCalendar from '../../Components/Calendar/PovorotCalendar/PovorotCalendar';
 import { Link } from "react-scroll"; // Импортируем библиотеку
 import { useEffect } from "react";
+import PovorotSimpleSlider from "Components/Slider/povorotSlider/PovorotSlider";
 
 export default function Povorot() {
   const currentDate1 = new Date().getDate();
@@ -72,11 +73,13 @@ export default function Povorot() {
             </li>
             <li className={s.questContactItem}>
               Номер телефону:{" "}
-              <span className={s.contactDesc}>+380 (95) 102 57 08</span>
+              <span className={s.contactDesc}>+380 99 516 91 66</span>
             </li>
           </ul>
         </div>
       </div>
+
+      <PovorotSimpleSlider/>
 
       <div className={s.advantages}>
         <ul className={s.advantagesList}>

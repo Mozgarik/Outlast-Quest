@@ -8,6 +8,7 @@ import doubble from "../../img/advanstage/doubble.svg";
 import PikaBookingCalendar from "../../Components/Calendar/PikaCalendar/PikaCalendar";
 import { Link } from "react-scroll"; // Импортируем библиотеку
 import { useEffect } from "react";
+import PikaSimpleSlider from "Components/Slider/pikaSlider/PikaSlider";
 
 export default function Proklatie() {
   const currentDate1 = new Date().getDate();
@@ -75,6 +76,8 @@ export default function Proklatie() {
           </ul>
         </div>
       </div>
+
+      <PikaSimpleSlider/>
 
       <div className={s.advantages}>
         <ul className={s.advantagesList}>

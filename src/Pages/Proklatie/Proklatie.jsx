@@ -8,6 +8,7 @@ import doubble from "../../img/advanstage/doubble.svg";
 import MonahBookingCalendar from "../../Components/Calendar/MonahCalendar/MonahCalendar";
 import { Link } from "react-scroll"; 
 import { useEffect } from "react";
+import MonahSimpleSlider from "Components/Slider/MonahSlider/MonahSlider";
 
 export default function Proklatie() {
   const currentDate1 = new Date().getDate();
@@ -73,6 +74,8 @@ export default function Proklatie() {
           </ul>
         </div>
       </div>
+ 
+      <MonahSimpleSlider/>
 
       <div className={s.advantages}>
         <ul className={s.advantagesList}>
