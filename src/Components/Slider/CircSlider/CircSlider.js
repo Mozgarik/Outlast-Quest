@@ -6,11 +6,11 @@ import boo from '../../../img/Slider/sliderSvg/boo_bbixqf37nv44.svg';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import s from './CircSlider.module.css';
-import img1 from '../../../img/cirkPhoto/etot.jpg';
-import img2 from '../../../img/cirkPhoto/ietot.jpg';
-import img3 from '../../../img/cirkPhoto/circ1.PNG';
-import img4 from '../../../img/cirkPhoto/circ2.PNG';
-import img5 from '../../../img/cirkPhoto/circ3.PNG';
+import img1 from '../../../img/Slider/cirkPhoto/etot.jpg';
+import img2 from '../../../img/Slider/cirkPhoto/ietot.jpg';
+import img3 from '../../../img/Slider/cirkPhoto/circ1.PNG';
+import img4 from '../../../img/Slider/cirkPhoto/circ2.PNG';
+import img5 from '../../../img/Slider/cirkPhoto/circ3.PNG';
 
 const images = [img1, img2, img3, img4, img5];
 const comments = [
