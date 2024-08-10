@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/outlast-quest/static/css/main.4415cd81.css",
-    "main.js": "/outlast-quest/static/js/main.19e3e686.js",
+    "main.css": "/outlast-quest/static/css/main.74738f30.css",
+    "main.js": "/outlast-quest/static/js/main.81bb0805.js",
     "static/js/787.8d775a42.chunk.js": "/outlast-quest/static/js/787.8d775a42.chunk.js",
     "static/media/monah1.png": "/outlast-quest/static/media/monah1.40ab10da057de8e4b32d.png",
     "static/media/monah2.png": "/outlast-quest/static/media/monah2.b540dd768b3031dad8d3.png",
@@ -51,16 +51,17 @@
     "static/media/phone.svg": "/outlast-quest/static/media/phone.13d45ca22b27f4c2b99a4da6e87c0f34.svg",
     "static/media/doubble.svg": "/outlast-quest/static/media/doubble.882aa40004b5cf3b249cd98b1f33283c.svg",
     "static/media/time.svg": "/outlast-quest/static/media/time.7b55fee34dee73430e8714f6ce448b2f.svg",
+    "static/media/tiktok2.svg": "/outlast-quest/static/media/tiktok2.f98751ebee01bd132c8a540469cb7cc9.svg",
     "static/media/tiktok_usz520v0xpov.svg": "/outlast-quest/static/media/tiktok_usz520v0xpov.aeaf154f79340358d170c6f3989bc16b.svg",
     "static/media/safety.svg": "/outlast-quest/static/media/safety.a32a29a13aec4e280c62e6c0c0d27135.svg",
     "static/media/inst.svg": "/outlast-quest/static/media/inst.916aed140280c62d925dc1ae6923dc40.svg",
     "static/media/mail.svg": "/outlast-quest/static/media/mail.9641f4978b1b5dc122fff17dd58c8baf.svg",
-    "main.4415cd81.css.map": "/outlast-quest/static/css/main.4415cd81.css.map",
-    "main.19e3e686.js.map": "/outlast-quest/static/js/main.19e3e686.js.map",
+    "main.74738f30.css.map": "/outlast-quest/static/css/main.74738f30.css.map",
+    "main.81bb0805.js.map": "/outlast-quest/static/js/main.81bb0805.js.map",
     "787.8d775a42.chunk.js.map": "/outlast-quest/static/js/787.8d775a42.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4415cd81.css",
-    "static/js/main.19e3e686.js"
+    "static/css/main.74738f30.css",
+    "static/js/main.81bb0805.js"
   ]
 }
