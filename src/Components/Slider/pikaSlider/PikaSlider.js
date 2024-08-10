@@ -54,6 +54,21 @@ const comments = [
   },
 ];
 
+const videoList = [
+  {
+    url: 'https://youtube.com/embed/Fka4gKCgkLk',
+  },
+  {
+    url: 'https://youtube.com/embed/EJIS2-3U7tA',
+  },
+  {
+    url: 'https://youtube.com/embed/IlvUtq2jsWg',
+  },
+  {
+    url: 'https://youtube.com/embed/9pW-3jjQTx4',
+  },
+];
+
 Modal.setAppElement('#root');
 
 export default function PikaSimpleSlider() {
@@ -96,7 +111,7 @@ export default function PikaSimpleSlider() {
               Вiдгуки
             </button>
             <button className={s.button} onClick={() => openModal('other')}>
-              iнше
+            Відео-відгуки
             </button>
           </div>
         </div>
@@ -161,10 +176,20 @@ export default function PikaSimpleSlider() {
         className={s.modal}
         overlayClassName={s.overlay}
       >
-        <div className={s.otherContent}>
-          <h2>Другое содержание</h2>
-          <p>Здесь может быть что-то другое.</p>
-        </div>
+        <Slider {...settings} className={s.slider}>
+        {videoList.map((video, index) => (
+          <div key={index}>
+            <iframe
+              className={s.video}
+              src={video.url}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title={`YouTube video ${index}`}
+            />
+          </div>
+        ))}
+        </Slider>
       </Modal>
     </div>
   );

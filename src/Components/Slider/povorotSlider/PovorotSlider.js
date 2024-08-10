@@ -54,6 +54,11 @@ const comments = [
   },
 ];
 
+const videoList = [
+ 
+];
+
+
 Modal.setAppElement('#root');
 
 export default function PovorotSimpleSlider() {
@@ -96,7 +101,7 @@ export default function PovorotSimpleSlider() {
               Вiдгуки
             </button>
             <button className={s.button} onClick={() => openModal('other')}>
-              iнше
+            Відео-відгуки
             </button>
           </div>
         </div>
@@ -161,10 +166,20 @@ export default function PovorotSimpleSlider() {
         className={s.modal}
         overlayClassName={s.overlay}
       >
-        <div className={s.otherContent}>
-          <h2>Другое содержание</h2>
-          <p>Здесь может быть что-то другое.</p>
-        </div>
+       <Slider {...settings} className={s.slider}>
+        {videoList.map((video, index) => (
+          <div key={index}>
+            <iframe
+              className={s.video}
+              src={video.url}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title={`YouTube video ${index}`}
+            />
+          </div>
+        ))}
+        </Slider>
       </Modal>
     </div>
   );

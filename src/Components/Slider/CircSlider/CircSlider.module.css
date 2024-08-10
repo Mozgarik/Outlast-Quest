@@ -170,7 +170,12 @@
   background-color: #969696;
 }
 
-/* Медиазапросы для адаптивной верстки */
+
+.video {
+  width: 100%;
+  height: 800px;
+}
+
 
 /* Для больших экранов */
 @media (min-width: 1400px) and (max-width: 1600px) {
@@ -184,6 +189,11 @@
   .sliderSection {
       width: 1200px;
   }
+  
+.video {
+  width: 100%;
+  height: 700px;
+}
 }
 
 /* Для планшетов */
@@ -204,6 +214,11 @@
       width: 100%;
       max-width: 150px;
   }
+
+  .video {
+    width: 100%;
+    height: 500px;
+  }
 }
 
 /* Для мобильных устройств */
@@ -211,6 +226,11 @@
   .slider {
       width: 320px;
       text-align: center;
+  }
+
+  .video {
+    width: 100%;
+    height: 700px;
   }
 
   .sliderSection {

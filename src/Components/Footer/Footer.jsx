@@ -1,23 +1,43 @@
-import Logo from "../Logo/Logo"
-import s from './Footer.module.css'
-import inst from '../../img/inst.svg'
-import phone from '../../img/phone.svg'
-import email from '../../img/mail.svg'
-
+import Logo from '../Logo/Logo';
+import s from './Footer.module.css';
+import inst from '../../img/inst.svg';
+import phone from '../../img/phone.svg';
+import email from '../../img/mail.svg';
+import tikTok from '../../img/tiktok2.svg'
 
 export default function Footer() {
-    return(
-        <footer>
-            <div className={s.footerSection}>
-                <div className={s.logotype}><Logo/>Outlast</div>
-            <div className={s.contacts}>
-                <ul className={s.contactsList}>
-                    <li className={s.contactItem}><a href="https://www.instagram.com/outlast.quest/"><img className={s.instIcon} src={inst} alt="" /></a></li>
-                    <li className={s.contactItem}><a href="tel:+380 99 516 91 66"><img className={s.instIcon} src={phone} alt="" /></a></li>
-                    <li className={s.contactItem}><a href="https://www.instagram.com/outlast.quest/"><img className={s.instIcon} src={email} alt="" /></a></li>
-                </ul>
-                </div>
-            </div>
-        </footer>
-    )
+  return (
+    <footer>
+      <div className={s.footerSection}>
+        <div className={s.logotype}>
+          <Logo />
+          Outlast
+        </div>
+        <div className={s.contacts}>
+          <ul className={s.contactsList}>
+            <li className={s.contactItem}>
+              <a href="https://www.instagram.com/outlast.quest/">
+                <img className={s.instIcon} src={inst} alt="" />
+              </a>
+            </li>
+            <li className={s.contactItem}>
+              <a href="tel:+380 99 516 91 66">
+                <img className={s.instIcon} src={phone} alt="" />
+              </a>
+            </li>
+            <li className={s.contactItem}>
+              <a href="https://www.instagram.com/outlast.quest/">
+                <img className={s.instIcon} src={email} alt="" />
+              </a>
+            </li>
+            <li className={s.contactItem}>
+              <a href="https://www.tiktok.com/@outlast.quest?_t=8ogP71XtKTt&_r=1">
+                <img className={s.instIconTik} src={tikTok} alt="" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  );
 }

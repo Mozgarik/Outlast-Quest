@@ -41,6 +41,18 @@
     }
 }
 
+.instIconTik {
+    transition: 0.5s;
+    padding-top: 1px;
+    width: 22px;
+    height: 22px;
+}
+
+.instIconTik:hover {
+    transform: scale(1.2);
+}
+
+
 
 /* tablet */
 
@@ -103,7 +115,7 @@
     }
 
     footer {
-        background-color: rgb(74, 110, 94);
+        background-color: #4a6e5e;
         opacity: 0.8;
     }
 
@@ -129,5 +141,12 @@
         align-items: center;
         justify-content: space-between;
         margin: auto;
+    }
+
+    
+    .instIconTik {
+        padding-top: 2px;
+        width: 25px;
+        height: 25px;
     }
 }
